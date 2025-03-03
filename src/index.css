@@ -13,10 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 
   --colorBLUE:  #4aacb5;
+  --colorBLUE50:  #bde7ea;
   --colorBLUE100:  #74d4db;
   --colorBLUEcontrast:  #26575C;
   --colorBLUEcontrast800:  #112729;
   --colorBLUEcontrast900:  #040a0a;
+  --colorBLUEshadown:  hsla(180, 43%, 3%, 0.694);
+  --colorTRANSPARENT100:  hsla(185, 41%, 11%, 0.26);
+  --colorTRANSPARENT300:  hsl(180, 47%, 3%) ;
 
 }
 
@@ -190,4 +194,128 @@ main h1{
   opacity: 1;
   transform: translateY(-100%);
 
+}
+
+/* ProfileArtist */
+
+.ProfileArtist{
+
+  margin: 15px;
+  padding: 0px 0px 20px;
+  background-color: #4aacb5;
+
+  border-radius: 40px;
+  overflow: hidden;
+
+  color: var(--colorBLUE50);
+}
+
+.ProfileArtist_header{
+  padding: 30px;
+  height: 450px;
+  width: 100%;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, var(--colorTRANSPARENT100), var(--colorTRANSPARENT300)), url("https://www.swr3.de/media-assets/1654605065669%2Cits-my-life-bon-jovi-102~_v-16x9@2dL_-6c42aff4e68b43c7868c3240d3ebfa29867457da.jpg");
+  background-size: cover;
+  background-position: 10%; /* Esta cortando 10% top da imagem no background*/
+
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.ProfileArtist_header_title{
+  font-size: 96px;
+  margin: 0px;
+  padding: 0px;
+  line-height: 80px;
+}
+
+.ProfileArtist_body{
+  padding: 30px;
+  color: var;
+}
+
+.ProfileArtist_body section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.ProfileArtist_body section:hover{
+  background-color: var(--colorBLUEcontrast800);
+}
+
+.ProfileArtist_body_songname{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.ProfileArtist_body_songname_p{
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /*quando o navegador n tiver compatibilidade com a propriedade line-clamp*/
+  line-clamp: 1; /* se o navegador tiver compatibilidade com essa propriedade dar certo*/
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ProfileArtist_body section:hover .ProfileArtist_body_songname_p{
+  -webkit-line-clamp: 10; /*quando o navegador n tiver compatibilidade com a propriedade line-clamp*/
+  line-clamp: 10; /* se o navegador tiver compatibilidade com essa propriedade dar certo*/
+}
+
+.ProfileArtist_body_img{
+  max-width: 100px;
+  min-width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+}
+
+.ProfileArtist_body_img img{
+  height: 100%;
+}
+
+
+/* Song  */
+
+.Song{
+
+  height: 100svh;
+  background-color: var(--colorBLUEcontrast900);
+
+  padding:25px;
+}
+
+.Song_container{
+
+  border-radius: 25px 25px 0px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background-image: linear-gradient(to bottom, var(--colorBLUEcontrast), var(--colorBLUEcontrast900));
+}
+
+.Song_container_image img{
+  display: block;
+  box-shadow: 0px 0px 20px 1px var(--colorBLUEshadown);
 }

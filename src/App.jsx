@@ -18,7 +18,10 @@ import p9 from "./assets/side-projects/p9.png";
 import p10 from "./assets/side-projects/p10.png";
 import p11 from "./assets/side-projects/p11.png";
 import p12 from "./assets/side-projects/p12.png";
-import OutroExemplo from "./components/OutroExemplo.jsx";
+
+import OutroExemplo from "./components/ex2Aula1/OutroExemplo.jsx";
+import ProfileArtist from "./components/ex3Aula2/ProfileArtist.jsx";
+import Song from "./components/ex4Aula2/Song.jsx";
 
 const array = [
   {
@@ -144,6 +147,11 @@ function App() {
         </div>
 
         <OutroExemplo/>
+
+        <ProfileArtist/>
+
+        <Song/>
+
       </main>
     </>
   )

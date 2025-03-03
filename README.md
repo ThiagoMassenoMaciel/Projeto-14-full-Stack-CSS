@@ -56,7 +56,7 @@
 # IMG 
 #### Coloca tag `<img>` dentro de uma div , esta dv quando tiver um display flex a img vai caber dentro da box-sizing definido da div
 #### exemplo igual o do projeto Spotify usado no componente `<OutroExemplo/>`
-````
+```
 .Artistas_Artista{
   position: relative;
 }
@@ -78,4 +78,41 @@
   transform: translateY(-100%);
 
 }
+```
+
+###### Colocando uma imagem no background de uma div
+```
+
+.ProfileArtist_header{
+  padding: 30px;
+  height: 450px;
+  width: 100%;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, var(--colorTRANSPARENT100), var(--colorTRANSPARENT300)), url("https://www.swr3.de/media-assets/1654605065669%2Cits-my-life-bon-jovi-102~_v-16x9@2dL_-6c42aff4e68b43c7868c3240d3ebfa29867457da.jpg");
+  background-size: cover;
+  background-position: 10%; /* Esta cortando 10% top da imagem no background*/
+
+  display: flex;
+  align-items: flex-end;
+
+}
+```
+
+###### Colocando os 3 pontinhos no texto grande
+```
+.ProfileArtist_body_songname_p{
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ProfileArtist_body section:hover .ProfileArtist_body_songname_p{
+  -webkit-line-clamp: 10; 
+  line-clamp: 10; 
+}
+
 ```
