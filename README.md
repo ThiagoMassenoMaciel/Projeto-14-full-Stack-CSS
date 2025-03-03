@@ -116,3 +116,29 @@
 }
 
 ```
+###### sem o place itens 
+![alt text](image-4.png)
+###### com o place itens
+![alt text](image-5.png)
+###### diferenciar posição de um dos filhos afetado com o grid
+```
+.seletor{
+  justify-self:start
+}
+```
+![alt text](image-6.png)
+
+###### a tela Song fazer ocupar toda a tela height
+![alt text](image-7.png)
+```
+.Song{
+  display: flex;
+  flex-direction: column;
+}
+
+.Song_container{
+  flex: 1;
+}
+```
+###### com o código vai ficar assim a div `.Song_container` ocupa toda o resto da pagina e `.Song` tem conteudo completamente preenchido
+![alt text](image-8.png)
