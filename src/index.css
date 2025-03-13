@@ -14,6 +14,7 @@
 
   --colorBLUE:  #4aacb5;
   --colorBLUE50:  #bde7ea;
+  --colorBLUE0:  #f0fafa;
   --colorBLUE100:  #74d4db;
   --colorBLUEcontrast:  #26575C;
   --colorBLUEcontrast800:  #112729;
@@ -21,6 +22,8 @@
   --colorBLUEshadown:  hsla(180, 43%, 3%, 0.694);
   --colorTRANSPARENT100:  hsla(185, 41%, 11%, 0.26);
   --colorTRANSPARENT300:  hsl(180, 47%, 3%) ;
+
+  --animationHOVER : 0.3s;
 
 }
 
@@ -364,12 +367,146 @@ main h1{
 }
 
 
+/* Outro jeito de fazer Song2 */
+.Song2{
+
+  height: 100svh;
+  background-color: var(--colorBLUEcontrast900);
+
+  padding:25px;
+}
+
+.Song2-h1{
+  font-size: 96px;
+}
+
+@media (max-width:1280px){
+  .Song2-h1{
+    font-size: 7.5vw;
+  }
+}
+@media (max-width:480px){
+  .Song2-h1{
+    font-size: 36px;
+  }
+}
+
+.Song2_container{
+
+  border-radius: 25px 25px 0px 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background-image: linear-gradient(to bottom, var(--colorBLUEcontrast), var(--colorBLUEcontrast900));
+}
+
+.Song2_container_image img{
+  display: block;
+  box-shadow: 0px 0px 20px 1px var(--colorBLUEshadown);
+}
+
+.Song2_bar_artistIMAGE{
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.Song2_bar_artistIMAGE img{
+  scale: 0.2;
+}
+
+.Song2_bar{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  place-items: center;
+  color: var(--colorBLUE50);
+
+  background-image: linear-gradient(to bottom, var(--colorBLUEcontrast900),  var(--colorBLUEcontrast));
+
+  gap: 15px;
+}
+
+.Song2_bar_artistIMAGE{
+  justify-self: start;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.Song2_songINFO{
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.Song2{
+  display: grid;
+  grid-template-rows: 1fr auto; /* primeira linha ocupa o max de espace disponivel , auto define o tam do próprio elemento*/
+}
+
+.Song2_container{
+  flex: 1;
+}
+
 /* Player */
 
 
 .Player{
-
+  justify-self: stretch; /* esticar todo espaço disponível*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
+
+.Player_time-progress{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 600px;
+}
+
+.Player_time-progress p{
+  margin: 0px;
+}
+
+.Player_controlers{
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Player_controlers_play{
+  font-size: 38px;
+}
+
+.Player_controlers_play,
+.Player_controlers_back,
+.Player_controlers_for{
+  transition: scale ease var(--animationHOVER);
+}
+
+.Player_controlers_play:hover,
+.Player_controlers_back:hover,
+.Player_controlers_for:hover{
+  scale: 1.2;
+  color: var(--colorBLUEcontrast);
+
+  cursor: pointer;
+}
+
 /*
 .Player_controlers{
   display: flex;
@@ -381,3 +518,68 @@ main h1{
 }
 
 */
+
+.Player_bar{
+  width: 100%;
+  height: 4px;
+  background-color: var(--colorBLUE100);
+
+  /* var(--colorBLUE100)  cor do fundo*/
+  /* var(--colorBLUE0)   cor do tempo passando*/
+
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.Player_progress_bar{
+  --_progress: 20%;
+  background-color: var(--colorBLUE0);
+  width: var(--_progress);
+  height: 4px;
+
+  overflow: hidden; /* para permitir border radius*/
+}
+
+@media(max-width: 1280px){
+  .Song2 .Player_time-progress_time{ /* Fazer sumir o tempo da musica*/
+    display: none;
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .Song2 .Song2_bar{
+    /*deixando a primeira metade da tela para ocupar o elemento img e elemento nome da musica e deixando a outra metade ocupando o elemento Player*/
+    grid-template-columns: auto 1fr 2fr; /*Mudando quantidade de colunas e definito o tamanho de cada uma para um novo layout, primeira coluna do tamanho do elemento ocupando um pedaço , segunda coluna ocupa espaço de um pedaço, e terceiro ocupa o espaço de 2 pedaços*/
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    justify-self: start; /* Para ficar mais próximo do elemento imagem */
+  }
+}
+
+@media (max-width: 800px){
+  .Song2 .Player_time-progress_time{ /* Fazer sumir o tempo da musica*/
+    display: none;
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .Song2 .Player{
+    grid-row: 2;
+    grid-column: 1 / span 2; /*começa na coluna 1 e se expande até a coluna 2*/
+  }
+
+  .Song2 .Song2_bar{
+    grid-template-columns: auto 1fr; /*Mudando quantidade de colunas e definito o tamanho de cada uma para um novo layout, primeira coluna do tamanho do elemento, segunda coluna ocupa o máximo que puder*/
+    padding-bottom: 15px;
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    justify-self: start; /* Para ficar mais próximo do elemento imagem */
+  }
+}

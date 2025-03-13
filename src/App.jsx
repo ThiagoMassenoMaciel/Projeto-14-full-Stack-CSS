@@ -22,6 +22,7 @@ import p12 from "./assets/side-projects/p12.png";
 import OutroExemplo from "./components/ex2Aula1/OutroExemplo.jsx";
 import ProfileArtist from "./components/ex3Aula2/ProfileArtist.jsx";
 import Song from "./components/ex4Aula2/Song.jsx";
+import Song2 from "./components/ex5Aula3/Song2.jsx";
 
 const array = [
   {
@@ -151,6 +152,8 @@ function App() {
         <ProfileArtist/>
 
         <Song/>
+        
+        <Song2/>
 
       </main>
     </>

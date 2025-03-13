@@ -1,3 +1,6 @@
+##### Coisas aprendidas no projeto 14 fullstack 
+
+
 # GRID
 ```
 .Projetos{
@@ -142,3 +145,105 @@
 ```
 ###### com o código vai ficar assim a div `.Song_container` ocupa toda o resto da pagina e `.Song` tem conteudo completamente preenchido
 ![alt text](image-8.png)
+
+###### Song + Player - other way
+```
+.Song2{
+  display: grid;
+  grid-template-rows: 1fr auto; /* primeira linha ocupa o max de espace disponivel , auto define o tam do próprio elemento*/
+}
+```
+
+##### Mudando o size da font de acordo com a largura vw
+###### tamanho da fonte / tamanho da width * 100 para conseguir a porcentagem   `(96/1280)*100 = 7.5` logo `7.5%`
+###### size da font diminiu enquanto a width for maior que 480px e menor que 1280px 
+###### quando a width for menor que 480px a font tera o size fixo
+```
+.Song2-h1{
+  font-size: 96px;
+}
+
+@media (max-width:1280px){
+  .Song2-h1{
+    font-size: 7.5vw;
+  }
+}
+@media (max-width:480px){
+  .Song2-h1{
+    font-size: 36px;
+  }
+}
+```
+# Mudando o layout dos elementos filhos da div `Song2` de acordo com o tamanho da width no `@media(max-width){}`
+###### antes de mudar
+![alt text](image-9.png)
+###### depois de mudar
+![alt text](image-10.png)
+###### colocar este código naquele elemento filho de um pai com grid
+
+```
+@media (max-width: 1080px){
+  .Player_time-progress_time{
+    display: none;
+  }
+
+  .Song2_songINFO{
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+```
+###### mudando mais para ficar assim
+![alt text](image-11.png)
+
+```
+@media(max-width: 1280px){
+  .Song2 .Player_time-progress_time{ /* Fazer sumir o tempo da musica*/
+    display: none;
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .Song2 .Song2_bar{
+    /*deixando a primeira metade da tela para ocupar o elemento img e elemento nome da musica e deixando a outra metade ocupando o elemento Player*/
+    grid-template-columns: auto 1fr 2fr; /*Mudando quantidade de colunas e definito o tamanho de cada uma para um novo layout, primeira coluna do tamanho do elemento ocupando um pedaço , segunda coluna ocupa espaço de um pedaço, e terceiro ocupa o espaço de 2 pedaços*/
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    justify-self: start; /* Para ficar mais próximo do elemento imagem */
+  }
+}
+
+@media (max-width: 800px){
+  .Song2 .Player_time-progress_time{ /* Fazer sumir o tempo da musica*/
+    display: none;
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .Song2 .Player{
+    grid-row: 2;
+    grid-column: 1 / span 2; /*começa na coluna 1 e se expande até a coluna 2*/
+  }
+
+  .Song2 .Song2_bar{
+    grid-template-columns: auto 1fr; /*Mudando quantidade de colunas e definito o tamanho de cada uma para um novo layout, primeira coluna do tamanho do elemento, segunda coluna ocupa o máximo que puder*/
+  }
+
+  .Song2 .Song2_songINFO{ /*Colocar em outro lugar dentro do grid de div pai*/
+    justify-self: start; /* Para ficar mais próximo do elemento imagem */
+  }
+}
+```
+###### resultado do último código width > 1280px 
+![alt text](image-12.png)
+###### resultado do último código width < 1280px 
+![alt text](image-13.png)
+###### resultado do último código width < 800px 
+![alt text](image-14.png)
+![alt text](image-15.png)
